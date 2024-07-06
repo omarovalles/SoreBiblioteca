@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model IEnumerable<SoreBiblioteca.Domain.Entities.Libro>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -21,7 +23,7 @@
     </nav>
     <div class="container">
         <h2>Añadir Libro</h2>
-        <form action="guardar_libro.php" method="POST">
+        <form asp-action="Create" asp-controller="Libros" method="POST">
             <div class="form-group">
                 <label for="autor">Autor:</label>
                 <input type="text" id="autor" name="autor" required>
@@ -41,5 +43,62 @@
             <button type="submit">Añadir Libro</button>
         </form>
     </div>
+    <table class="table align-middle mb-0 bg-white">
+        <thead class="bg-light">
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Autor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Titulo)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.Stock)
+                </th>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.IdproveedorNavigation)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Autor)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Titulo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Stock)
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Idlibro">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Idlibro">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Idlibro">Delete</a>
+                        </td>
+                        <td>
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                <button type="button" class="btn btn-danger">Editar</button>
+                                <button type="button" class="btn btn-danger">Detalles</button>
+                                <button type="button" class="btn btn-warning">Eliminar</button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5">No data available</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </body>
 </html>

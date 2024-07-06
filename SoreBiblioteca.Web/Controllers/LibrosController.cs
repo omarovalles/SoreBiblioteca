@@ -24,7 +24,7 @@ namespace SoreBiblioteca.Web.Controllers
         public async Task<IActionResult> Index()
         {
             var soreLibraryContext = _context.Libros.Include(l => l.IdproveedorNavigation);
-            return View(await soreLibraryContext.ToListAsync());
+            return View("LibrosPage", await soreLibraryContext.ToListAsync());
         }
 
         // GET: Libros/Details/5

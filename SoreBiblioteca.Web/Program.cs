@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using SoreBiblioteca.Web.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Register the DbContext with the connection string from appsettings.json
+builder.Services.AddDbContext<SoreLibraryContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SoreLibraryContext")));
 
 var app = builder.Build();
 
