@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using SoreBiblioteca.Web.Models;
-
-namespace SoreBiblioteca.Web.Persistence;
+using SoreBiblioteca.Domain.Entities;
+namespace SoreBiblioteca.Infraestructure;
 
 public partial class SoreLibraryContext : DbContext
 {
