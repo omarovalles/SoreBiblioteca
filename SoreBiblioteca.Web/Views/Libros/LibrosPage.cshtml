@@ -47,6 +47,9 @@
     <table class="table align-middle mb-0 bg-white">
         <thead class="bg-light">
             <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Idlibro)
+                </th>
                 <th scope="col">
                     @Html.DisplayNameFor(model => model.Autor)
                 </th>
@@ -66,6 +69,9 @@
                 {
                     <tr>
                         <td>
+                            @Html.DisplayFor(modelItem => item.Idlibro)
+                        </td>
+                        <td>
                             @Html.DisplayFor(modelItem => item.Autor)
                         </td>
                         <td>
@@ -75,14 +81,10 @@
                             @Html.DisplayFor(modelItem => item.Stock)
                         </td>
                         <td>
-                        </td>
-                        <td>
-                            <div class="btn-group" role="group" aria-label="Basic mixed style
-
-s example">
-                                <button asp-action="Edit" asp-controller="Libros" type="button" class="btn btn-primary">Editar</button>
-                                <button asp-action="Details" asp-controller="Libros" type="button" class="btn btn-success">Detalles</button>
-                                <button asp-action="Delete" asp-controller="Libros" type="button" class="btn btn-danger">Eliminar</button>
+                            <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                @Html.ActionLink("Editar", "Edit", "Libros", new { id = item.Idlibro }, new { @class = "btn btn-primary" })
+                                @Html.ActionLink("Detalles", "Details", "Libros", new { id = item.Idlibro }, new { @class = "btn btn-success" })
+                                @Html.ActionLink("Eliminar", "Delete", "Libros", new { id = item.Idlibro }, new { @class = "btn btn-danger" })
                             </div>
                         </td>
                     </tr>

@@ -6,7 +6,7 @@ namespace SoreBiblioteca.Domain.Entities;
 
 public partial class Cliente
 {
-    [Key]
+ 
     public int Idcliente { get; set; }
 
     public string Nombre { get; set; } = null!;
