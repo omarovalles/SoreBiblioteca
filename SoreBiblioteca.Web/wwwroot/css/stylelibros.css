@@ -6,7 +6,7 @@
 }
 .nav-principal {
     position: relative;
-    background-color: #3498DB;
+    background-color: #E4080A;
     height: 30px;
 }
 
@@ -35,11 +35,12 @@
     display: block;
     padding: 5px 10px;
     text-decoration: none;
-    color: #333;
+    color: #000;
 }
 
 .menu-desplegable a:hover {
-    color: #3498DB;
+   transition: all 0.5s;
+   color: #E4080A;
 }
 
 .nav-principal:hover .menu-desplegable {
@@ -98,3 +99,19 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #0056b3;
 }
+
+
+.table{
+    width: 50%;
+}
+
+.backtolist a {
+    text-decoration: none;
+    color: #000;
+    margin-left: 5px;
+}
+
+    .backtolist a:hover {
+        color: red;
+        transition: all 0.5s;
+    }

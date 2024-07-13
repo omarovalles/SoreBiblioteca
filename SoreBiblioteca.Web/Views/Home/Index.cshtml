@@ -13,9 +13,10 @@
             <i class="fas fa-bars"></i>
         </a>
         <div class="menu-desplegable">
-            <a asp-action="LibrosPage">Libros</a>
-            <a href="#">Prestamos</a>
-            <a href="#">Proveedores</a>
+            <a asp-controller="Home" asp-action="Index">Inicio</a>
+            <a asp-controller="Home" asp-action="LibrosPage">Libros</a>
+            <a asp-controller="Home" asp-action="PrestamosDisp">Prestamos</a>
+            <a asp-controller="Home" asp-action="ProveedoresPage">Proveedores</a>
         </div>
     </nav>
     <div class="sub-div">

@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+.nav-principal {
+    position: relative;
+    background-color: #E4080A;
+    height: 30px;
+}
+
+.nav-principal .nav-icon {
+    line-height: 2;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.nav-principal .nav-icon i {
+    color: #000;
+}
+
+.menu-desplegable {
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 12%;
+    height: 750px;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-principal:focus-within .menu-desplegable {
+    display: block;
+}
+
+.menu-desplegable a {
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #000;
+}
+
+.menu-desplegable a:hover {
+    transition: all 0.5s;
+    color: #E4080A;
+}
+.container{
+    border: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    background-color: #fff;
+    width: 700px;
+    margin-left: 370px;
+    margin-top: 60px;
+    height: 400px;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+}
+
+.enlaces a {
+    text-decoration: none;
+    color: #000;
+}
+
+.enlaces a:hover {
+   color: #E4080A;
+   transition: all 0.5s;
+}

@@ -161,5 +161,27 @@ namespace SoreBiblioteca.Web.Controllers
         {
             return _context.Libros.Any(e => e.Idlibro == id);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Prestar(int id)
+        {
+            var libro = await _context.Libros.FindAsync(id);
+            if (libro == null)
+            {
+                return NotFound();
+            }
+
+            if (libro.Stock > 0)
+            {
+                libro.Stock -= 1;
+                _context.Update(libro);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
     }
+
 }

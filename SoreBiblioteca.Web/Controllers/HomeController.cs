@@ -20,9 +20,18 @@ namespace SoreBiblioteca.Web.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View("/Views/Home/Index.cshtml");
         }
 
+        public IActionResult PrestamosDisp()
+        {
+            return View("/Views/Clientes/Index.cshtml");
+        }
+
+        public IActionResult ProveedoresPage()
+        {
+            return View("/Views/Proveedores/ProveedoresPage.cshtml");
+        }
         public IActionResult Privacy()
         {
             return View();

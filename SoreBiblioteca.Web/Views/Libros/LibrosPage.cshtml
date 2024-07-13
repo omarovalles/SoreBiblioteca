@@ -16,10 +16,10 @@
             <i class="fas fa-bars"></i>
         </a>
         <div class="menu-desplegable">
-            <a href="index.html">Inicio</a>
-            <a href="#">Libros</a>
-            <a href="#">Prestamos</a>
-            <a href="#">Proveedores</a>
+            <a asp-controller="Home" asp-action="Index">Inicio</a>
+            <a asp-controller="Home" asp-action="LibrosPage">Libros</a>
+            <a asp-controller="Home" asp-action="PrestamosDisp">Prestamos</a>
+            <a asp-controller="Home" asp-action="ProveedoresPage">Proveedores</a>
         </div>
     </nav>
     <div class="container">
@@ -87,6 +87,13 @@
                                 @Html.ActionLink("Eliminar", "Delete", "Libros", new { id = item.Idlibro }, new { @class = "btn btn-danger" })
                             </div>
                         </td>
+                        <td>
+                            <form asp-action="Prestar" asp-controller="Libros" method="post" class="d-inline">
+                                <input type="hidden" name="id" value="@item.Idlibro" />
+                                <button type="submit" class="btn btn-outline-danger">Prestar</button>
+                            </form>
+                        </td>
+
                     </tr>
                 }
             }

@@ -6,7 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SoreBiblioteca.Domain.Entities;
+using SoreBiblioteca.Web.Models;
 using SoreBiblioteca.Web.Persistence;
+using SoreBiblioteca.Web.ViewModels;
 
 namespace SoreBiblioteca.Web.Controllers
 {
@@ -22,7 +24,12 @@ namespace SoreBiblioteca.Web.Controllers
         // GET: Clientes
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Clientes.ToListAsync());
+            var viewModel = new ClienteViewModel
+            {
+                Clientes = await _context.Clientes.ToListAsync(),
+                NuevoCliente = new Cliente()
+            };
+            return View("Index", viewModel);
         }
 
         // GET: Clientes/Details/5
@@ -40,18 +47,18 @@ namespace SoreBiblioteca.Web.Controllers
                 return NotFound();
             }
 
+           
+
             return View(cliente);
         }
 
         // GET: Clientes/Create
         public IActionResult Create()
         {
-            return View();
+            return View("/Clientes/Index.cshtml");
         }
 
         // POST: Clientes/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Idcliente,Nombre,Apellido,Direccion,Telefono,Correo,Estado")] Cliente cliente)
@@ -82,8 +89,6 @@ namespace SoreBiblioteca.Web.Controllers
         }
 
         // POST: Clientes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Idcliente,Nombre,Apellido,Direccion,Telefono,Correo,Estado")] Cliente cliente)
