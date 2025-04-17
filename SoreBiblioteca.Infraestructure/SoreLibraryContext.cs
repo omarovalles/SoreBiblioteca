@@ -23,8 +23,8 @@ public partial class SoreLibraryContext : DbContext
 
     public virtual DbSet<Proveedore> Proveedores { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=SoreLibrary;Trusted_Connection=True;TrustServerCertificate=True;");
+   // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //    => optionsBuilder.UseSqlServer("Server=localhost\\SQLEXPRESS;Database=SoreLibrary;Trusted_Connection=True;TrustServerCertificate=True;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
